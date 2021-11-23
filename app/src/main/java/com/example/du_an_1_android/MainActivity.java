@@ -42,10 +42,19 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     FirebaseDatabase db = FirebaseDatabase.getInstance("https://du-an-1-android-75d60-default-rtdb.firebaseio.com/");
     DatabaseReference node = db.getReference("TaiKhoan");
-
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if (currentUser!=null){
+            startActivity(new Intent(getApplicationContext(),thongtin_email.class));
+        }
+    }
     private GoogleSignInClient mGoogleSignInClient;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
