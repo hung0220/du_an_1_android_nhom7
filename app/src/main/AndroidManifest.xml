@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.du_an_1_android">
-
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!--    <uses-permission android:name="android.permission.CAMERA"/>-->
+    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -16,7 +20,14 @@
 
         </activity>
         <activity android:name=".thongtin_addArt"
-            android:windowSoftInputMode="adjustPan"/>
+            android:exported="true"
+            android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".thongtin_ngaysinh"
             android:windowSoftInputMode="adjustPan"
             android:exported="true">
@@ -53,11 +64,7 @@
             android:name=".MainActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustPan">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 </manifest>

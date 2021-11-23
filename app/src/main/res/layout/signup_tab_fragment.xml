@@ -78,11 +78,12 @@
             android:ems="10"
             android:inputType="number"
             android:maxLength="8" />
+
         <TextView
+            android:id="@+id/Guiotp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Gưởi OTP"
-            android:id="@+id/Guiotp"/>
+            android:text="Gửi OTP" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView

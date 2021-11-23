@@ -6,19 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:background="@drawable/gradient_login"
-        app:layout_constraintHeight_percent=".27"
-        android:scaleType="centerCrop"
-        app:layout_constraintVertical_bias="0"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        >
-    </ImageView>
+<!--    <ImageView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:background="@drawable/gradient_login"-->
+<!--        app:layout_constraintHeight_percent=".27"-->
+<!--        android:scaleType="centerCrop"-->
+<!--        app:layout_constraintVertical_bias="0"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        >-->
+<!--    </ImageView>-->
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -79,7 +79,6 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@drawable/broder_form"
-
             android:src="@drawable/logo_gg"
             app:layout_constraintWidth_percent=".3"
             app:layout_constraintHeight_percent=".08"
