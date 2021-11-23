@@ -9,41 +9,19 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.material.textfield.TextInputEditText;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
 public class thongtin_sdt extends AppCompatActivity {
     Button tieptuc_sdt;
     ImageView trove_sdt;
-    TextInputEditText edtSDT;
-    FirebaseDatabase db = FirebaseDatabase.getInstance("https://du-an-1-android-75d60-default-rtdb.firebaseio.com/");
-    DatabaseReference node = db.getReference("TaiKhoan");
-    FirebaseAuth firebaseAuth;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_thongtin_sdt);
-
-        AnhXa();
-        firebaseAuth=FirebaseAuth.getInstance();
-
         //         tiếp tục
         tieptuc_sdt = findViewById(R.id.btnTT_sdt);
         tieptuc_sdt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                String sdt = edtSDT.getText().toString().trim();
-                String id = firebaseAuth.getUid();
-                ThongTinDangNhap thongTinDangNhap = new ThongTinDangNhap();
-                thongTinDangNhap.setSDT(sdt);
-
-                node.child(id).updateChildren(thongTinDangNhap.toMapSDT());
-
                 Intent intent = new Intent(thongtin_sdt.this, com.example.du_an_1_android.thongtin_Name.class);
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
@@ -61,9 +39,5 @@ public class thongtin_sdt extends AppCompatActivity {
 
             }
         });
-    }
-
-    private void AnhXa(){
-        edtSDT = findViewById(R.id.edtSdt);
     }
 }

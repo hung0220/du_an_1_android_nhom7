@@ -160,13 +160,8 @@ public class SignuUpTabFragment extends Fragment {
                             sendUserToHome();
 
                             UUID id = UUID.randomUUID();
-                            ThongTinDangNhap thongTinDangNhap = new ThongTinDangNhap();
-                            thongTinDangNhap.setId(id.toString());
-                            thongTinDangNhap.setTenDangNhap(tk);
-                            thongTinDangNhap.setMatKhau(mk);
+                            ThongTinDangNhap thongTinDangNhap = new ThongTinDangNhap(id.toString(),tk,mk);
                             node.child(id.toString()).setValue(thongTinDangNhap);
-
-
 
                             Intent homeIntent = new Intent(getActivity(), MainActivity.class);
 
