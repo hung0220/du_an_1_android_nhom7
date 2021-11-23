@@ -45,10 +45,6 @@
             android:windowSoftInputMode="adjustPan"/>
 
 
-
-        <activity
-            android:name=".ahihihihihi"
-            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
