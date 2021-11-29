@@ -40,12 +40,22 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "GoogleActivity";
     private static final int RC_SIGN_IN = 9001;
     private FirebaseAuth mAuth;
+
     FirebaseDatabase db = FirebaseDatabase.getInstance("https://du-an-1-android-75d60-default-rtdb.firebaseio.com/");
     DatabaseReference node = db.getReference("TaiKhoan");
-
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if (currentUser!=null){
+            startActivity(new Intent(getApplicationContext(),thongtin_email.class));
+        }
+    }
     private GoogleSignInClient mGoogleSignInClient;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
@@ -122,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
             firebaseAuthWithGoogle(account.getIdToken());
 
         } catch (ApiException e) {
-            Toast.makeText(this, "fff", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "lỗi", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -134,15 +144,20 @@ public class MainActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             GoogleSignInAccount account= GoogleSignIn.getLastSignedInAccount(MainActivity.this);
+
+                            String id1 = mAuth.getUid();
                             String tentk = account.getEmail();
-                            UUID id = UUID.randomUUID();
-                            ThongTinDangNhap thongTinDangNhap = new ThongTinDangNhap(id.toString(),tentk,"123456");
-                            node.child(id.toString()).setValue(thongTinDangNhap);
+                            ThongTinDangNhap thongTinDangNhap = new ThongTinDangNhap(id1.toString(),tentk,"","","","","","","","","","","","","","","","","");
+
+                            node.child(id1).setValue(thongTinDangNhap);
+
+
                             Log.d(TAG, "signInWithCredential:success");
 
                             FirebaseUser user = mAuth.getCurrentUser();
                             if (user!=null){
-                                startActivity(new Intent(getApplicationContext(),thongtin_email.class));
+                                Intent otpIntent = new Intent(MainActivity.this, thongtin_email.class);
+                                startActivity(otpIntent);
                             }
                         } else {
 
