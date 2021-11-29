@@ -40,6 +40,8 @@
         android:layout_height="wrap_content"
         app:counterEnabled="true"
         app:counterMaxLength="99"
+        app:boxStrokeColor="#F288AF"
+        app:hintTextColor="#F288AF"
         app:layout_constraintVertical_bias=".1"
         app:layout_constraintWidth_percent=".8"
         app:layout_constraintBottom_toBottomOf="parent"

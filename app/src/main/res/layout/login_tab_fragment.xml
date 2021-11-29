@@ -10,22 +10,26 @@
         android:layout_width="0dp"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_height="wrap_content"
-        android:hint="Email or SDT "
+        android:hint="Email or SDT"
+        app:hintTextColor="#F288AF"
+        app:boxStrokeColor="#F288AF"
+        app:startIconDrawable="@drawable/ic_baseline_border_horizontal_24"
+        app:startIconTint="#F288AF"
         app:endIconMode="clear_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias=".2"
+        app:expandedHintEnabled="true"
         app:layout_constraintWidth_percent=".75">
-
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edtEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:maxLength="100" />
+            android:maxLength="50" />
     </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -36,6 +40,10 @@
         android:layout_height="wrap_content"
         android:hint="Password"
         app:endIconMode="password_toggle"
+        app:boxStrokeColor="#F288AF"
+        app:startIconDrawable="@drawable/ic_baseline_vpn_key_24"
+        app:startIconTint="#F288AF"
+        app:hintTextColor="#F288AF"
         app:layout_constraintVertical_bias=".06"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/edtLogin"

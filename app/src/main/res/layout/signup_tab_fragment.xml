@@ -12,11 +12,15 @@
         android:layout_height="wrap_content"
         android:hint="Email or SDT "
         app:endIconMode="clear_text"
+        app:hintTextColor="#F288AF"
+        app:boxStrokeColor="#F288AF"
+        app:startIconDrawable="@drawable/ic_baseline_border_horizontal_24"
+        app:startIconTint="#F288AF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintWidth_percent=".8"
+        app:layout_constraintWidth_percent=".75"
         app:layout_constraintVertical_bias=".2"
         app:layout_constraintHorizontal_bias=".5">
 
@@ -37,13 +41,17 @@
         android:layout_height="wrap_content"
         android:hint="Password"
         app:endIconMode="password_toggle"
+        app:boxStrokeColor="#F288AF"
+        app:startIconDrawable="@drawable/ic_baseline_vpn_key_24"
+        app:startIconTint="#F288AF"
+        app:hintTextColor="#F288AF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/edtLogin"
         app:layout_constraintHorizontal_bias=".5"
         app:layout_constraintStart_toStartOf="@+id/edtLogin"
         app:layout_constraintTop_toBottomOf="@+id/edtLogin"
-        app:layout_constraintVertical_bias=".04"
-        app:layout_constraintWidth_percent=".8">
+        app:layout_constraintVertical_bias=".05"
+        app:layout_constraintWidth_percent=".75">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -57,20 +65,23 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/maotp"
-
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="Nhập mã OTP"
         app:counterEnabled="true"
         app:counterMaxLength="6"
+        app:boxStrokeColor="#F288AF"
+        app:startIconDrawable="@drawable/ic_baseline_tap_and_play_24"
+        app:startIconTint="#F288AF"
+        app:hintTextColor="#F288AF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/edtPass"
         app:layout_constraintHorizontal_bias=".5"
         app:layout_constraintStart_toStartOf="@+id/edtPass"
         app:layout_constraintTop_toBottomOf="@+id/edtPass"
-        app:layout_constraintVertical_bias=".04"
-        app:layout_constraintWidth_percent=".8">
+        app:layout_constraintVertical_bias=".05"
+        app:layout_constraintWidth_percent=".75">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edtOTP"
@@ -78,13 +89,26 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="number"
-            android:maxLength="8" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Gưởi OTP"
-            android:id="@+id/Guiotp"/>
+            android:maxLength="6" />
+
     </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/Guiotp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/boder_button_test"
+        android:gravity="center"
+        android:text="Gửi OTP"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/maotp"
+        app:layout_constraintEnd_toEndOf="@+id/maotp"
+        app:layout_constraintHeight_percent=".1"
+        app:layout_constraintHorizontal_bias=".97"
+        app:layout_constraintStart_toStartOf="@+id/maotp"
+        app:layout_constraintTop_toTopOf="@+id/maotp"
+        app:layout_constraintVertical_bias=".3"
+        app:layout_constraintWidth_percent=".19" />
 
     <TextView
         android:id="@+id/login_form_feedback"
@@ -111,9 +135,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/maotp"
-        app:layout_constraintVertical_bias="0.692"
-        app:layout_constraintWidth_percent=".8" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.9"
+        app:layout_constraintWidth_percent=".75" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
