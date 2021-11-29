@@ -23,11 +23,7 @@
         <activity android:name=".thongtin_addArt"
             android:exported="true"
             android:windowSoftInputMode="adjustPan">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".thongtin_ngaysinh"
             android:windowSoftInputMode="adjustPan"
@@ -35,7 +31,10 @@
 
         </activity>
         <activity android:name=".thongtin_gioitinh"
-            android:windowSoftInputMode="adjustPan"/>
+            android:exported="true"
+            android:windowSoftInputMode="adjustPan">
+
+        </activity>
         <activity android:name=".thongtin_Name"
             android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".thongtin_sdt"
@@ -44,11 +43,18 @@
             android:name=".thongtin_email"
             android:exported="true"
             android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
         </activity>
         <activity android:name=".thongtin_sothich"
-            android:windowSoftInputMode="adjustPan"/>
+            android:exported="true"
+            android:windowSoftInputMode="adjustPan">
+
+        </activity>
         <activity
             android:name=".MainActivity_Page"
             android:exported="true"
@@ -57,11 +63,14 @@
             android:windowSoftInputMode="adjustPan"/>
 
 
+
+        <activity
+            android:name=".ahihihihihi"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustPan">
-
 
         </activity>
     </application>
