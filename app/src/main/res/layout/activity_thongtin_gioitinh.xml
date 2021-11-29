@@ -36,7 +36,7 @@
             app:layout_constraintVertical_bias=".13" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnNamWhite"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/boder_button_like"
@@ -49,9 +49,24 @@
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintVertical_bias=".1"
         app:layout_constraintWidth_percent=".7" />
+    <Button
+        android:id="@+id/btnNamPink"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/boder_onclick_btn"
+        android:text="Nam"
+        android:textColor="#F288AF"
+        android:visibility="invisible"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias=".1"
+        app:layout_constraintWidth_percent=".7" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnNuWhite"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/boder_button_like"
@@ -61,12 +76,27 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/btnNamWhite"
+        app:layout_constraintVertical_bias=".08"
+        app:layout_constraintWidth_percent=".7" />
+    <Button
+        android:id="@+id/btnNuPink"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/boder_onclick_btn"
+        android:text="Nữ"
+        android:textColor="#F288AF"
+        android:textSize="18sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnNamWhite"
         app:layout_constraintVertical_bias=".08"
         app:layout_constraintWidth_percent=".7" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btnKhacWhite"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/boder_button_like"
@@ -76,7 +106,22 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2"
+        app:layout_constraintTop_toBottomOf="@+id/btnNuWhite"
+        app:layout_constraintVertical_bias=".08"
+        app:layout_constraintWidth_percent=".7" />
+    <Button
+        android:id="@+id/btnKhacPink"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/boder_onclick_btn"
+        android:text="Khác"
+        android:textColor="#F288AF"
+        android:textSize="18sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnNuWhite"
         app:layout_constraintVertical_bias=".08"
         app:layout_constraintWidth_percent=".7" />
 
@@ -94,7 +139,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3"
+        app:layout_constraintTop_toBottomOf="@+id/btnKhacWhite"
         app:layout_constraintVertical_bias=".85"
         app:layout_constraintWidth_percent=".8" />
 </androidx.constraintlayout.widget.ConstraintLayout>
