@@ -12,13 +12,22 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.Calendar;
 
 public class thongtin_ngaysinh extends AppCompatActivity {
     private DatePickerDialog datePickerDialog;
-    private Button dateButton;
+    private Button dateButton, datePickerButton;
     Button tieptuc_Date;
     ImageView trove_Date;
+    FirebaseDatabase db = FirebaseDatabase.getInstance("https://du-an-1-android-75d60-default-rtdb.firebaseio.com/");
+    DatabaseReference node = db.getReference("TaiKhoan");
+    FirebaseAuth firebaseAuth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +35,7 @@ public class thongtin_ngaysinh extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_thongtin_ngaysinh);
         initDatePicker();
+        firebaseAuth=FirebaseAuth.getInstance();
         dateButton = findViewById(R.id.datePickerButton);
         dateButton.setText(getTodaysDate());
         
@@ -34,6 +44,20 @@ public class thongtin_ngaysinh extends AppCompatActivity {
         tieptuc_Date.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
+
+
+                String id = firebaseAuth.getUid();
+                datePickerButton = findViewById(R.id.datePickerButton);
+                String TenCuaBan = datePickerButton.getText().toString().trim();
+                ThongTinDangNhap thongTinDangNhap = new ThongTinDangNhap();
+                thongTinDangNhap.setNgaySinh(TenCuaBan);
+
+                node.child(id).updateChildren(thongTinDangNhap.toMapNgaySinh());
+
+
+
                 Intent intent = new Intent(thongtin_ngaysinh.this, thongtin_gioitinh.class);
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
