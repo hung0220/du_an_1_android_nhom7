@@ -9,6 +9,11 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+
+import com.github.drjacky.imagepicker.ImagePicker;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class thongtin_addArt extends AppCompatActivity {
     ImageView troVe_mota;
@@ -21,15 +26,15 @@ public class thongtin_addArt extends AppCompatActivity {
     private static final int REQUEST_IMAGE_OPEN_7 = 7;
     private static final int REQUEST_IMAGE_OPEN_8 = 8;
     private static final int REQUEST_IMAGE_OPEN_9 = 9;
-    ImageView addCase1;
-    ImageView addCase2;
-    ImageView addCase3;
-    ImageView addCase4;
-    ImageView addCase5;
-    ImageView addCase6;
-    ImageView addCase7;
-    ImageView addCase8;
-    ImageView addCase9;
+    CardView addCase1;
+    CardView addCase2;
+    CardView addCase3;
+    CardView addCase4;
+    CardView addCase5;
+    CardView addCase6;
+    CardView addCase7;
+    CardView addCase8;
+    CardView addCase9;
     ImageView case1;
     ImageView case2;
     ImageView case3;
@@ -49,90 +54,99 @@ public class thongtin_addArt extends AppCompatActivity {
         addCase1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-                intent.setType("image/*");
-                intent.addCategory(Intent.CATEGORY_OPENABLE);
-                startActivityForResult(intent, REQUEST_IMAGE_OPEN);
+                ImagePicker.Companion.with(thongtin_addArt.this)
+                        .crop (12F , 16f)	    			 // Cắt hình ảnh (Tùy chọn), Kiểm tra Tùy chỉnh để có thêm tùy chọn
+                        .compress ( 1024 )			 // Kích thước hình ảnh cuối cùng sẽ nhỏ hơn 1 MB (Tùy chọn)
+                        .maxResultSize ( 1080 , 1080 )	 // Độ phân giải hình ảnh cuối cùng sẽ là dưới 1080 x 1080 (Tùy chọn)
+                        .start(REQUEST_IMAGE_OPEN);
             }
         });
         addCase2 = findViewById(R.id.addcase2);
         addCase2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-                intent.setType("image/*");
-                intent.addCategory(Intent.CATEGORY_OPENABLE);
-                startActivityForResult(intent, REQUEST_IMAGE_OPEN_2);
+                ImagePicker.Companion.with(thongtin_addArt.this)
+                        .crop (12F , 16f)	    			 // Cắt hình ảnh (Tùy chọn), Kiểm tra Tùy chỉnh để có thêm tùy chọn
+                        .compress ( 1024 )			 // Kích thước hình ảnh cuối cùng sẽ nhỏ hơn 1 MB (Tùy chọn)
+                        .maxResultSize ( 1080 , 1080 )	 // Độ phân giải hình ảnh cuối cùng sẽ là dưới 1080 x 1080 (Tùy chọn)
+                        .start(REQUEST_IMAGE_OPEN_2);
             }
         });
         addCase3 = findViewById(R.id.addcase3);
         addCase3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-                intent.setType("image/*");
-                intent.addCategory(Intent.CATEGORY_OPENABLE);
-                startActivityForResult(intent, REQUEST_IMAGE_OPEN_3);
+                   ImagePicker.Companion.with(thongtin_addArt.this)
+                        .crop (12F , 16f)	    			 // Cắt hình ảnh (Tùy chọn), Kiểm tra Tùy chỉnh để có thêm tùy chọn
+                        .compress ( 1024 )			 // Kích thước hình ảnh cuối cùng sẽ nhỏ hơn 1 MB (Tùy chọn)
+                        .maxResultSize ( 1080 , 1080 )	 // Độ phân giải hình ảnh cuối cùng sẽ là dưới 1080 x 1080 (Tùy chọn)
+                        .start(REQUEST_IMAGE_OPEN_3);
             }
         });
         addCase4 = findViewById(R.id.addcase4);
         addCase4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-                intent.setType("image/*");
-                intent.addCategory(Intent.CATEGORY_OPENABLE);
-                startActivityForResult(intent, REQUEST_IMAGE_OPEN_4);
+                ImagePicker.Companion.with(thongtin_addArt.this)
+                        .crop (12F , 16f)	    			 // Cắt hình ảnh (Tùy chọn), Kiểm tra Tùy chỉnh để có thêm tùy chọn
+                        .compress ( 1024 )			 // Kích thước hình ảnh cuối cùng sẽ nhỏ hơn 1 MB (Tùy chọn)
+                        .maxResultSize ( 1080 , 1080 )	 // Độ phân giải hình ảnh cuối cùng sẽ là dưới 1080 x 1080 (Tùy chọn)
+                        .start(REQUEST_IMAGE_OPEN_4);
             }
         });
         addCase5 = findViewById(R.id.addcase5);
         addCase5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-                intent.setType("image/*");
-                intent.addCategory(Intent.CATEGORY_OPENABLE);
-                startActivityForResult(intent, REQUEST_IMAGE_OPEN_5);
+                ImagePicker.Companion.with(thongtin_addArt.this)
+                        .crop (12F , 16f)	    			 // Cắt hình ảnh (Tùy chọn), Kiểm tra Tùy chỉnh để có thêm tùy chọn
+                        .compress ( 1024 )			 // Kích thước hình ảnh cuối cùng sẽ nhỏ hơn 1 MB (Tùy chọn)
+                        .maxResultSize ( 1080 , 1080 )	 // Độ phân giải hình ảnh cuối cùng sẽ là dưới 1080 x 1080 (Tùy chọn)
+                        .start(REQUEST_IMAGE_OPEN_5);
             }
         });
         addCase6 = findViewById(R.id.addcase6);
         addCase6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-                intent.setType("image/*");
-                intent.addCategory(Intent.CATEGORY_OPENABLE);
-                startActivityForResult(intent, REQUEST_IMAGE_OPEN_6);
+                ImagePicker.Companion.with(thongtin_addArt.this)
+                        .crop (12F , 16f)	    			 // Cắt hình ảnh (Tùy chọn), Kiểm tra Tùy chỉnh để có thêm tùy chọn
+                        .compress ( 1024 )			 // Kích thước hình ảnh cuối cùng sẽ nhỏ hơn 1 MB (Tùy chọn)
+                        .maxResultSize ( 1080 , 1080 )	 // Độ phân giải hình ảnh cuối cùng sẽ là dưới 1080 x 1080 (Tùy chọn)
+                        .start(REQUEST_IMAGE_OPEN_6);
             }
         });
         addCase7 = findViewById(R.id.addcase7);
         addCase7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-                intent.setType("image/*");
-                intent.addCategory(Intent.CATEGORY_OPENABLE);
-                startActivityForResult(intent, REQUEST_IMAGE_OPEN_7);
+                ImagePicker.Companion.with(thongtin_addArt.this)
+                        .crop (12F , 16f)	    			 // Cắt hình ảnh (Tùy chọn), Kiểm tra Tùy chỉnh để có thêm tùy chọn
+                        .compress ( 1024 )			 // Kích thước hình ảnh cuối cùng sẽ nhỏ hơn 1 MB (Tùy chọn)
+                        .maxResultSize ( 1080 , 1080 )	 // Độ phân giải hình ảnh cuối cùng sẽ là dưới 1080 x 1080 (Tùy chọn)
+                        .start(REQUEST_IMAGE_OPEN_7);
             }
         });
         addCase8 = findViewById(R.id.addcase8);
         addCase8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-                intent.setType("image/*");
-                intent.addCategory(Intent.CATEGORY_OPENABLE);
-                startActivityForResult(intent, REQUEST_IMAGE_OPEN_8);
+                ImagePicker.Companion.with(thongtin_addArt.this)
+                        .crop (12F , 16f)	    			 // Cắt hình ảnh (Tùy chọn), Kiểm tra Tùy chỉnh để có thêm tùy chọn
+                        .compress ( 1024 )			 // Kích thước hình ảnh cuối cùng sẽ nhỏ hơn 1 MB (Tùy chọn)
+                        .maxResultSize ( 1080 , 1080 )	 // Độ phân giải hình ảnh cuối cùng sẽ là dưới 1080 x 1080 (Tùy chọn)
+                        .start(REQUEST_IMAGE_OPEN_8);
             }
         });
         addCase9 = findViewById(R.id.addcase9);
         addCase9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-                intent.setType("image/*");
-                intent.addCategory(Intent.CATEGORY_OPENABLE);
-                startActivityForResult(intent, REQUEST_IMAGE_OPEN_9);
+                ImagePicker.Companion.with(thongtin_addArt.this)
+                        .crop (12F , 16f)	    			 // Cắt hình ảnh (Tùy chọn), Kiểm tra Tùy chỉnh để có thêm tùy chọn
+                        .compress ( 1024 )			 // Kích thước hình ảnh cuối cùng sẽ nhỏ hơn 1 MB (Tùy chọn)
+                        .maxResultSize ( 1080 , 1080 )	 // Độ phân giải hình ảnh cuối cùng sẽ là dưới 1080 x 1080 (Tùy chọn)
+                        .start(REQUEST_IMAGE_OPEN_9);
             }
         });
         //setOnclick để mở file ảnh
