@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".thongtin_addArt">
-    aaaaa
     <ImageView
         android:id="@+id/back_Art"
         android:layout_width="0dp"
@@ -33,11 +32,11 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias=".11" />
 
-    <ImageView
-        android:id="@+id/case1"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/boder_img"
+        app:cardCornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent=".20"
@@ -45,243 +44,382 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintVertical_bias=".05"
-        app:layout_constraintWidth_percent=".25" />
-
+        app:layout_constraintWidth_percent=".25"
+        >
     <ImageView
+        android:id="@+id/case1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/boder_img"
+        />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
         android:id="@+id/addcase1"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:src="@drawable/add_art"
-        app:layout_constraintBottom_toTopOf="@+id/case1"
-        app:layout_constraintEnd_toEndOf="@+id/case1"
-        app:layout_constraintHeight_percent=".05"
-        app:layout_constraintStart_toStartOf="@+id/case1"
-        app:layout_constraintWidth_percent=".08"
-        android:layout_marginBottom="-25dp"
-        android:layout_marginRight="-5dp"
+        app:cardCornerRadius="50dp"
+        android:outlineSpotShadowColor="#00FFFFFF"
+        android:backgroundTint="#00FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/cardview"
+        app:layout_constraintEnd_toEndOf="@+id/cardview"
+        app:layout_constraintHeight_percent=".04"
+        app:layout_constraintStart_toStartOf="@+id/cardview"
+        app:layout_constraintWidth_percent=".07"
         app:layout_constraintHorizontal_bias="1"
-        />
+        android:layout_marginBottom="-18dp"
+        android:layout_marginRight="-10dp"
+        android:padding="0dp"
+        >
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/add_art"/>
+    </androidx.cardview.widget.CardView>
 
-
-    <ImageView
-        android:id="@+id/case2"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview2"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/boder_img"
-        app:layout_constraintBottom_toBottomOf="@+id/case1"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/cardview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent=".20"
         app:layout_constraintHorizontal_bias=".13"
-        app:layout_constraintStart_toEndOf="@+id/case1"
-        app:layout_constraintTop_toTopOf="@+id/case1"
-        app:layout_constraintWidth_percent=".25" />
+        app:layout_constraintStart_toEndOf="@+id/cardview"
+        app:layout_constraintTop_toTopOf="@+id/cardview"
+        app:layout_constraintWidth_percent=".25">
 
-    <ImageView
+        <ImageView
+            android:id="@+id/case2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/boder_img" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
         android:id="@+id/addcase2"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginRight="-5dp"
-        android:layout_marginBottom="-25dp"
-        android:src="@drawable/add_art"
-        app:layout_constraintBottom_toTopOf="@+id/case2"
-        app:layout_constraintEnd_toEndOf="@+id/case2"
-        app:layout_constraintHeight_percent=".05"
+        app:cardCornerRadius="50dp"
+        android:outlineSpotShadowColor="#00FFFFFF"
+        android:backgroundTint="#00FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/cardview2"
+        app:layout_constraintEnd_toEndOf="@+id/cardview2"
+        app:layout_constraintHeight_percent=".04"
+        app:layout_constraintStart_toStartOf="@+id/cardview2"
+        app:layout_constraintWidth_percent=".07"
         app:layout_constraintHorizontal_bias="1"
-        app:layout_constraintStart_toStartOf="@+id/case2"
-        app:layout_constraintWidth_percent=".08" />
+        android:layout_marginBottom="-18dp"
+        android:layout_marginRight="-10dp"
+        android:padding="0dp"
+        >
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/add_art"/>
+    </androidx.cardview.widget.CardView>
 
-    <ImageView
-        android:id="@+id/case3"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview3"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/boder_img"
-        app:layout_constraintBottom_toBottomOf="@+id/case2"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/cardview2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent=".20"
-        app:layout_constraintStart_toEndOf="@+id/case2"
-        app:layout_constraintTop_toTopOf="@+id/case2"
-        app:layout_constraintWidth_percent=".25" />
 
-    <ImageView
+        app:layout_constraintStart_toEndOf="@+id/cardview2"
+        app:layout_constraintTop_toTopOf="@+id/cardview2"
+        app:layout_constraintWidth_percent=".25">
+
+        <ImageView
+            android:id="@+id/case3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/boder_img" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
         android:id="@+id/addcase3"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:src="@drawable/add_art"
-        app:layout_constraintBottom_toTopOf="@+id/case3"
-        app:layout_constraintEnd_toEndOf="@+id/case3"
-        app:layout_constraintHeight_percent=".05"
-        app:layout_constraintStart_toStartOf="@+id/case3"
-        android:layout_marginBottom="-25dp"
-        android:layout_marginRight="-5dp"
+        app:cardCornerRadius="50dp"
+        android:outlineSpotShadowColor="#00FFFFFF"
+        android:backgroundTint="#00FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/cardview3"
+        app:layout_constraintEnd_toEndOf="@+id/cardview3"
+        app:layout_constraintHeight_percent=".04"
+        app:layout_constraintStart_toStartOf="@+id/cardview3"
+        app:layout_constraintWidth_percent=".07"
         app:layout_constraintHorizontal_bias="1"
-        app:layout_constraintWidth_percent=".08" />
+        android:layout_marginBottom="-18dp"
+        android:layout_marginRight="-10dp"
+        android:padding="0dp"
+        >
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/add_art"/>
+    </androidx.cardview.widget.CardView>
 
-    <ImageView
-
-        android:id="@+id/case4"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview4"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/boder_img"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintVertical_bias=".04"
+        app:layout_constraintHeight_percent=".20"
+        app:layout_constraintWidth_percent=".25"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent=".20"
-        app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintStart_toStartOf="@+id/case1"
-        app:layout_constraintTop_toBottomOf="@+id/case1"
-        app:layout_constraintVertical_bias=".04"
-        app:layout_constraintWidth_percent=".25" />
+        app:layout_constraintStart_toStartOf="@+id/cardview"
+        app:layout_constraintTop_toBottomOf="@+id/cardview">
 
-    <ImageView
+        <ImageView
+            android:id="@+id/case4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/boder_img" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
         android:id="@+id/addcase4"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginRight="-5dp"
-        android:layout_marginBottom="-25dp"
-        android:src="@drawable/add_art"
-        app:layout_constraintBottom_toTopOf="@+id/case4"
-        app:layout_constraintEnd_toEndOf="@+id/case4"
-        app:layout_constraintHeight_percent=".05"
+        app:cardCornerRadius="50dp"
+        android:outlineSpotShadowColor="#00FFFFFF"
+        android:backgroundTint="#00FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/cardview4"
+        app:layout_constraintEnd_toEndOf="@+id/cardview4"
+        app:layout_constraintHeight_percent=".04"
+        app:layout_constraintStart_toStartOf="@+id/cardview4"
+        app:layout_constraintWidth_percent=".07"
         app:layout_constraintHorizontal_bias="1"
-        app:layout_constraintStart_toStartOf="@+id/case4"
-        app:layout_constraintWidth_percent=".08" />
+        android:layout_marginBottom="-18dp"
+        android:layout_marginRight="-10dp"
+        android:padding="0dp"
+        >
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/add_art"/>
+    </androidx.cardview.widget.CardView>
 
-
-    <ImageView
-
-        android:id="@+id/case5"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview5"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/boder_img"
-        app:layout_constraintBottom_toBottomOf="@+id/case4"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/cardview4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent=".20"
         app:layout_constraintHorizontal_bias=".13"
-        app:layout_constraintStart_toEndOf="@+id/case4"
-        app:layout_constraintTop_toTopOf="@+id/case4"
-        app:layout_constraintWidth_percent=".25" />
+        app:layout_constraintStart_toEndOf="@+id/cardview4"
+        app:layout_constraintTop_toTopOf="@+id/cardview4"
+        app:layout_constraintWidth_percent=".25">
 
-    <ImageView
+        <ImageView
+            android:id="@+id/case5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/boder_img" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
         android:id="@+id/addcase5"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginRight="-5dp"
-        android:layout_marginBottom="-25dp"
-        android:src="@drawable/add_art"
-        app:layout_constraintBottom_toTopOf="@+id/case5"
-        app:layout_constraintEnd_toEndOf="@+id/case5"
-        app:layout_constraintHeight_percent=".05"
+        app:cardCornerRadius="50dp"
+        android:outlineSpotShadowColor="#00FFFFFF"
+        android:backgroundTint="#00FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/cardview5"
+        app:layout_constraintEnd_toEndOf="@+id/cardview5"
+        app:layout_constraintHeight_percent=".04"
+        app:layout_constraintStart_toStartOf="@+id/cardview5"
+        app:layout_constraintWidth_percent=".07"
         app:layout_constraintHorizontal_bias="1"
-        app:layout_constraintStart_toStartOf="@+id/case5"
-        app:layout_constraintWidth_percent=".08" />
+        android:layout_marginBottom="-18dp"
+        android:layout_marginRight="-10dp"
+        android:padding="0dp"
+        >
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/add_art"/>
+    </androidx.cardview.widget.CardView>
 
-    <ImageView
-        android:id="@+id/case6"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview6"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/boder_img"
-        app:layout_constraintBottom_toBottomOf="@+id/case5"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/cardview5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent=".20"
-        app:layout_constraintStart_toEndOf="@+id/case5"
-        app:layout_constraintTop_toTopOf="@+id/case5"
-        app:layout_constraintWidth_percent=".25" />
+        app:layout_constraintStart_toEndOf="@+id/cardview5"
+        app:layout_constraintTop_toTopOf="@+id/cardview5"
+        app:layout_constraintWidth_percent=".25">
 
-    <ImageView
+        <ImageView
+            android:id="@+id/case6"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/boder_img" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
         android:id="@+id/addcase6"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:src="@drawable/add_art"
-        android:layout_marginBottom="-25dp"
-        android:layout_marginRight="-5dp"
+        app:cardCornerRadius="50dp"
+        android:outlineSpotShadowColor="#00FFFFFF"
+        android:backgroundTint="#00FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/cardview6"
+        app:layout_constraintEnd_toEndOf="@+id/cardview6"
+        app:layout_constraintHeight_percent=".04"
+        app:layout_constraintStart_toStartOf="@+id/cardview6"
+        app:layout_constraintWidth_percent=".07"
         app:layout_constraintHorizontal_bias="1"
-        app:layout_constraintBottom_toTopOf="@+id/case6"
-        app:layout_constraintEnd_toEndOf="@+id/case6"
-        app:layout_constraintHeight_percent=".05"
-        app:layout_constraintStart_toStartOf="@+id/case6"
-        app:layout_constraintWidth_percent=".08" />
+        android:layout_marginBottom="-18dp"
+        android:layout_marginRight="-10dp"
+        android:padding="0dp"
+        >
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/add_art"/>
+    </androidx.cardview.widget.CardView>
 
-    <ImageView
-
-        android:id="@+id/case7"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview7"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/boder_img"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintVertical_bias=".085"
+        app:layout_constraintHeight_percent=".20"
+        app:layout_constraintWidth_percent=".25"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent=".20"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/case4"
-        app:layout_constraintTop_toBottomOf="@+id/case4"
-        app:layout_constraintVertical_bias="0.085"
-        app:layout_constraintWidth_percent=".25" />
+        app:layout_constraintStart_toStartOf="@+id/cardview4"
+        app:layout_constraintTop_toBottomOf="@+id/cardview4">
 
-    <ImageView
+        <ImageView
+            android:id="@+id/case7"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/boder_img" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
         android:id="@+id/addcase7"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:src="@drawable/add_art"
-        android:layout_marginBottom="-25dp"
-        android:layout_marginRight="-5dp"
+        app:cardCornerRadius="50dp"
+        android:outlineSpotShadowColor="#00FFFFFF"
+        android:backgroundTint="#00FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/cardview7"
+        app:layout_constraintEnd_toEndOf="@+id/cardview7"
+        app:layout_constraintHeight_percent=".04"
+        app:layout_constraintStart_toStartOf="@+id/cardview7"
+        app:layout_constraintWidth_percent=".07"
         app:layout_constraintHorizontal_bias="1"
-        app:layout_constraintBottom_toTopOf="@+id/case7"
-        app:layout_constraintEnd_toEndOf="@+id/case7"
-        app:layout_constraintHeight_percent=".05"
-        app:layout_constraintStart_toStartOf="@+id/case7"
-        app:layout_constraintWidth_percent=".08" />
+        android:layout_marginBottom="-18dp"
+        android:layout_marginRight="-10dp"
+        android:padding="0dp"
+        >
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/add_art"/>
+    </androidx.cardview.widget.CardView>
 
-    <ImageView
-
-        android:id="@+id/case8"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview8"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/boder_img"
-        app:layout_constraintBottom_toBottomOf="@+id/case7"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="@id/cardview7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent=".20"
         app:layout_constraintHorizontal_bias=".13"
-        app:layout_constraintStart_toEndOf="@+id/case7"
-        app:layout_constraintTop_toTopOf="@+id/case7"
-        app:layout_constraintWidth_percent=".25" />
+        app:layout_constraintStart_toEndOf="@+id/cardview7"
+        app:layout_constraintTop_toTopOf="@+id/cardview7"
+        app:layout_constraintWidth_percent=".25">
 
-    <ImageView
+        <ImageView
+            android:id="@+id/case8"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/boder_img" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
         android:id="@+id/addcase8"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:src="@drawable/add_art"
-        android:layout_marginBottom="-25dp"
-        android:layout_marginRight="-5dp"
+        app:cardCornerRadius="50dp"
+        android:outlineSpotShadowColor="#00FFFFFF"
+        android:backgroundTint="#00FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/cardview8"
+        app:layout_constraintEnd_toEndOf="@+id/cardview8"
+        app:layout_constraintHeight_percent=".04"
+        app:layout_constraintStart_toStartOf="@+id/cardview8"
+        app:layout_constraintWidth_percent=".07"
         app:layout_constraintHorizontal_bias="1"
-        app:layout_constraintBottom_toTopOf="@+id/case8"
-        app:layout_constraintEnd_toEndOf="@+id/case8"
-        app:layout_constraintHeight_percent=".05"
-        app:layout_constraintStart_toStartOf="@+id/case8"
-        app:layout_constraintWidth_percent=".08" />
+        android:layout_marginBottom="-18dp"
+        android:layout_marginRight="-10dp"
+        android:padding="0dp"
+        >
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/add_art"/>
+    </androidx.cardview.widget.CardView>
 
-    <ImageView
-        android:id="@+id/case9"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview9"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/boder_img"
-        app:layout_constraintBottom_toBottomOf="@+id/case8"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="@id/cardview8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent=".20"
-        app:layout_constraintStart_toEndOf="@+id/case8"
-        app:layout_constraintTop_toTopOf="@+id/case8"
-        app:layout_constraintWidth_percent=".25" />
+        app:layout_constraintStart_toEndOf="@+id/cardview8"
+        app:layout_constraintTop_toTopOf="@+id/cardview8"
+        app:layout_constraintWidth_percent=".25">
 
-    <ImageView
+        <ImageView
+            android:id="@+id/case9"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/boder_img" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
         android:id="@+id/addcase9"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:src="@drawable/add_art"
-        android:layout_marginBottom="-25dp"
-        android:layout_marginRight="-5dp"
+        app:cardCornerRadius="50dp"
+        android:outlineSpotShadowColor="#00FFFFFF"
+        android:backgroundTint="#00FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/cardview9"
+        app:layout_constraintEnd_toEndOf="@+id/cardview9"
+        app:layout_constraintHeight_percent=".04"
+        app:layout_constraintStart_toStartOf="@+id/cardview9"
+        app:layout_constraintWidth_percent=".07"
         app:layout_constraintHorizontal_bias="1"
-        app:layout_constraintBottom_toTopOf="@+id/case9"
-        app:layout_constraintEnd_toEndOf="@+id/case9"
-        app:layout_constraintHeight_percent=".05"
-        app:layout_constraintStart_toStartOf="@+id/case9"
-        app:layout_constraintWidth_percent=".08" />
+        android:layout_marginBottom="-18dp"
+        android:layout_marginRight="-10dp"
+        android:padding="0dp"
+        >
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/add_art"/>
+    </androidx.cardview.widget.CardView>
 
     <Button
         android:id="@+id/btnTT_Art"
@@ -297,7 +435,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/case8"
+        app:layout_constraintTop_toBottomOf="@+id/cardview8"
         app:layout_constraintVertical_bias="0.407"
         app:layout_constraintWidth_percent=".8" />
 
