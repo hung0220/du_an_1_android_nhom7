@@ -21,7 +21,7 @@ public class thongtin_sothich extends AppCompatActivity {
     ImageView trove_sothich;
     String sothich1,sothich2,sothich3,sothich4,sothich5,sothich6,sothich7,sothich8,sothich9,sothich10,sothich11;
     TextView txtErroSoThich;
-    int dem = 1;
+    int dem = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
