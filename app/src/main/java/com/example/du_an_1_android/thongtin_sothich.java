@@ -272,13 +272,13 @@ public class thongtin_sothich extends AppCompatActivity {
                     txtErroSoThich.setVisibility(View.VISIBLE);
                 }else{
                     txtErroSoThich.setVisibility(View.INVISIBLE);
-//                    Intent intent = new Intent(thongtin_sothich.this, com.example.du_an_1_android.thongtin_mota.class);
-//                    startActivity(intent);
-//                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-                    Toast.makeText(thongtin_sothich.this, ""+sothich3, Toast.LENGTH_SHORT).show();
-                    Toast.makeText(thongtin_sothich.this, ""+sothich5, Toast.LENGTH_SHORT).show();
-                    Toast.makeText(thongtin_sothich.this, ""+sothich7, Toast.LENGTH_SHORT).show();
-                    Toast.makeText(thongtin_sothich.this, ""+sothich1, Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(thongtin_sothich.this, com.example.du_an_1_android.thongtin_mota.class);
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+//                    Toast.makeText(thongtin_sothich.this, ""+sothich3, Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(thongtin_sothich.this, ""+sothich5, Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(thongtin_sothich.this, ""+sothich7, Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(thongtin_sothich.this, ""+sothich1, Toast.LENGTH_SHORT).show();
                 }
 
             }

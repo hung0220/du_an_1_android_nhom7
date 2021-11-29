@@ -12,6 +12,10 @@
         android:layout_height="wrap_content"
         android:hint="Email or SDT "
         app:endIconMode="clear_text"
+        app:hintTextColor="#F288AF"
+        app:boxStrokeColor="#F288AF"
+        app:startIconDrawable="@drawable/ic_baseline_border_horizontal_24"
+        app:startIconTint="#F288AF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,6 +41,10 @@
         android:layout_height="wrap_content"
         android:hint="Password"
         app:endIconMode="password_toggle"
+        app:boxStrokeColor="#F288AF"
+        app:startIconDrawable="@drawable/ic_baseline_vpn_key_24"
+        app:startIconTint="#F288AF"
+        app:hintTextColor="#F288AF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/edtLogin"
         app:layout_constraintHorizontal_bias=".5"
@@ -63,6 +71,10 @@
         android:hint="Nhập mã OTP"
         app:counterEnabled="true"
         app:counterMaxLength="6"
+        app:boxStrokeColor="#F288AF"
+        app:startIconDrawable="@drawable/ic_baseline_tap_and_play_24"
+        app:startIconTint="#F288AF"
+        app:hintTextColor="#F288AF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/edtPass"
         app:layout_constraintHorizontal_bias=".5"
@@ -77,7 +89,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="number"
-            android:maxLength="8" />
+            android:maxLength="6" />
 
     </com.google.android.material.textfield.TextInputLayout>
 

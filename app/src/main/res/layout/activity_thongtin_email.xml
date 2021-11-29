@@ -49,8 +49,11 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/email"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:boxStrokeColor="#F288AF"
+            app:hintTextColor="#F288AF"
             android:hint="Email "
             app:endIconMode="clear_text"
             >
