@@ -73,6 +73,7 @@ public class SignuUpTabFragment extends Fragment {
                 if(txtTK.isEmpty()){
                     mLoginFeedbackText.setText("Vui lòng điền vào biểu mẫu để tiếp tục.");
                     mLoginFeedbackText.setVisibility(View.VISIBLE);
+//                    btnSinUp.setBackgroundColor(R.drawable.boder_button_test);
                 } else {
 
                     otp.setEnabled(false);
