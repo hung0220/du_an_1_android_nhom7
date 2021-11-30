@@ -2,21 +2,41 @@ package com.example.du_an_1_android;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import com.github.drjacky.imagepicker.ImagePicker;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
+import java.io.ByteArrayOutputStream;
+import java.util.Calendar;
+import java.util.UUID;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class thongtin_addArt extends AppCompatActivity {
     ImageView troVe_mota;
+    Button btnTT_Art;
     private static final int REQUEST_IMAGE_OPEN = 1;
     private static final int REQUEST_IMAGE_OPEN_2 = 2;
     private static final int REQUEST_IMAGE_OPEN_3 = 3;
@@ -44,12 +64,21 @@ public class thongtin_addArt extends AppCompatActivity {
     ImageView case7;
     ImageView case8;
     ImageView case9;
+
+    // kho ảnh
+    FirebaseStorage storage = FirebaseStorage.getInstance();
+    StorageReference storageRef = storage.getReferenceFromUrl("gs://du-an-1-android-75d60.appspot.com");
+
+    FirebaseDatabase db = FirebaseDatabase.getInstance("https://du-an-1-android-75d60-default-rtdb.firebaseio.com/");
+    DatabaseReference node = db.getReference("TaiKhoan");
+    FirebaseAuth firebaseAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_thongtin_add_art);
         //setOnclick để mở file ảnh
+        firebaseAuth=FirebaseAuth.getInstance();
         addCase1 = findViewById(R.id.addcase1);
         addCase1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -219,8 +248,420 @@ public class thongtin_addArt extends AppCompatActivity {
 
         }
 
+        btnTT_Art = findViewById(R.id.btnTT_Art);
+        btnTT_Art.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+//                UUID Id = UUID.randomUUID();
+//                String id1 = Id.toString();
+                Calendar calendar = Calendar.getInstance();
+                StorageReference mountainsRef = storageRef.child("image" + calendar.getTimeInMillis() + ".png");
+                // Get the data from an ImageView as bytes
+                case1.setDrawingCacheEnabled(true);
+                case1.buildDrawingCache();
+                Bitmap bitmap = ((BitmapDrawable) case1.getDrawable()).getBitmap();
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
+                byte[] data = baos.toByteArray();
+
+                UploadTask uploadTask = mountainsRef.putBytes(data);
+                uploadTask.addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception exception) {
+                        Toast.makeText(thongtin_addArt.this, "Loi up hinh", Toast.LENGTH_SHORT).show();
+                    }
+
+                }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        Task<Uri> downloadUri = taskSnapshot.getStorage().getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            @Override
+                            public void onSuccess(Uri uri) {
+                                String id = firebaseAuth.getUid();
+                                ThongTinDangNhap thongTinDangNhap = new ThongTinDangNhap();
+                                thongTinDangNhap.setHinh1("" + uri + "");
+
+                                node.child(id).updateChildren(thongTinDangNhap.toMapAnh1(), new DatabaseReference.CompletionListener() {
+                                    @Override
+                                    public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
+                                        if (error == null) {
+                                        }
+                                    }
+                                });
+
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                            }
+                        });
+                    }
+                });
+
+                Calendar calendar2 = Calendar.getInstance();
+                StorageReference mountainsRef2 = storageRef.child("image" + calendar2.getTimeInMillis() + ".png");
+                case2.setDrawingCacheEnabled(true);
+                case2.buildDrawingCache();
+                Bitmap bitmap2 = ((BitmapDrawable) case2.getDrawable()).getBitmap();
+                ByteArrayOutputStream baos2 = new ByteArrayOutputStream();
+                bitmap2.compress(Bitmap.CompressFormat.PNG, 100, baos2);
+                byte[] data2 = baos2.toByteArray();
+                UploadTask uploadTask2 = mountainsRef2.putBytes(data2);
+                uploadTask2.addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception exception) {
+                        Toast.makeText(thongtin_addArt.this, "Loi up hinh", Toast.LENGTH_SHORT).show();
+                    }
+                }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        Task<Uri> downloadUri = taskSnapshot.getStorage().getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            @Override
+                            public void onSuccess(Uri uri) {
+                                String id = firebaseAuth.getUid();
+                                ThongTinDangNhap thongTinDangNhap = new ThongTinDangNhap();
+                                thongTinDangNhap.setHinh2("" + uri + "");
+
+                                node.child(id).updateChildren(thongTinDangNhap.toMapAnh2(), new DatabaseReference.CompletionListener() {
+                                    @Override
+                                    public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
+                                        if (error == null) {
+                                        }
+                                    }
+                                });
+
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                            }
+                        });
+                    }
+                });
+
+                Calendar calendar3 = Calendar.getInstance();
+                StorageReference mountainsRef3 = storageRef.child("image" + calendar3.getTimeInMillis() + ".png");
+                case3.setDrawingCacheEnabled(true);
+                case3.buildDrawingCache();
+                Bitmap bitmap3 = ((BitmapDrawable) case3.getDrawable()).getBitmap();
+                ByteArrayOutputStream baos3 = new ByteArrayOutputStream();
+                bitmap3.compress(Bitmap.CompressFormat.PNG, 100, baos3);
+                byte[] data3 = baos3.toByteArray();
+                UploadTask uploadTask3 = mountainsRef3.putBytes(data3);
+                uploadTask3.addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception exception) {
+                        Toast.makeText(thongtin_addArt.this, "Loi up hinh", Toast.LENGTH_SHORT).show();
+                    }
+                }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        Task<Uri> downloadUri = taskSnapshot.getStorage().getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            @Override
+                            public void onSuccess(Uri uri) {
+                                String id = firebaseAuth.getUid();
+                                ThongTinDangNhap thongTinDangNhap = new ThongTinDangNhap();
+                                thongTinDangNhap.setHinh3("" + uri + "");
+
+                                node.child(id).updateChildren(thongTinDangNhap.toMapAnh3(), new DatabaseReference.CompletionListener() {
+                                    @Override
+                                    public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
+                                        if (error == null) {
+                                        }
+                                    }
+                                });
+
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                            }
+                        });
+                    }
+                });
+
+
+                Calendar calendar4 = Calendar.getInstance();
+                StorageReference mountainsRef4 = storageRef.child("image" + calendar4.getTimeInMillis() + ".png");
+                case4.setDrawingCacheEnabled(true);
+                case4.buildDrawingCache();
+                Bitmap bitmap4 = ((BitmapDrawable) case4.getDrawable()).getBitmap();
+                ByteArrayOutputStream baos4 = new ByteArrayOutputStream();
+                bitmap4.compress(Bitmap.CompressFormat.PNG, 100, baos4);
+                byte[] data4 = baos4.toByteArray();
+                UploadTask uploadTask4 = mountainsRef4.putBytes(data4);
+                uploadTask4.addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception exception) {
+                        Toast.makeText(thongtin_addArt.this, "Loi up hinh", Toast.LENGTH_SHORT).show();
+                    }
+                }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        Task<Uri> downloadUri = taskSnapshot.getStorage().getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            @Override
+                            public void onSuccess(Uri uri) {
+                                String id = firebaseAuth.getUid();
+                                ThongTinDangNhap thongTinDangNhap = new ThongTinDangNhap();
+                                thongTinDangNhap.setHinh4("" + uri + "");
+
+                                node.child(id).updateChildren(thongTinDangNhap.toMapAnh4(), new DatabaseReference.CompletionListener() {
+                                    @Override
+                                    public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
+                                        if (error == null) {
+                                        }
+                                    }
+                                });
+
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                            }
+                        });
+                    }
+                });
+
+
+                Calendar calendar5 = Calendar.getInstance();
+                StorageReference mountainsRef5 = storageRef.child("image" + calendar5.getTimeInMillis() + ".png");
+                case5.setDrawingCacheEnabled(true);
+                case5.buildDrawingCache();
+                Bitmap bitmap5 = ((BitmapDrawable) case5.getDrawable()).getBitmap();
+                ByteArrayOutputStream baos5 = new ByteArrayOutputStream();
+                bitmap5.compress(Bitmap.CompressFormat.PNG, 100, baos5);
+                byte[] data5 = baos5.toByteArray();
+                UploadTask uploadTask5 = mountainsRef5.putBytes(data5);
+                uploadTask5.addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception exception) {
+                        Toast.makeText(thongtin_addArt.this, "Loi up hinh", Toast.LENGTH_SHORT).show();
+                    }
+                }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        Task<Uri> downloadUri = taskSnapshot.getStorage().getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            @Override
+                            public void onSuccess(Uri uri) {
+                                String id = firebaseAuth.getUid();
+                                ThongTinDangNhap thongTinDangNhap = new ThongTinDangNhap();
+                                thongTinDangNhap.setHinh5("" + uri + "");
+
+                                node.child(id).updateChildren(thongTinDangNhap.toMapAnh5(), new DatabaseReference.CompletionListener() {
+                                    @Override
+                                    public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
+                                        if (error == null) {
+                                        }
+                                    }
+                                });
+
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                            }
+                        });
+                    }
+                });
+
+
+                Calendar calendar6 = Calendar.getInstance();
+                StorageReference mountainsRef6 = storageRef.child("image" + calendar6.getTimeInMillis() + ".png");
+                case6.setDrawingCacheEnabled(true);
+                case6.buildDrawingCache();
+                Bitmap bitmap6 = ((BitmapDrawable) case6.getDrawable()).getBitmap();
+                ByteArrayOutputStream baos6 = new ByteArrayOutputStream();
+                bitmap6.compress(Bitmap.CompressFormat.PNG, 100, baos6);
+                byte[] data6 = baos6.toByteArray();
+                UploadTask uploadTask6 = mountainsRef6.putBytes(data6);
+                uploadTask6.addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception exception) {
+                        Toast.makeText(thongtin_addArt.this, "Loi up hinh", Toast.LENGTH_SHORT).show();
+                    }
+                }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        Task<Uri> downloadUri = taskSnapshot.getStorage().getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            @Override
+                            public void onSuccess(Uri uri) {
+                                String id = firebaseAuth.getUid();
+                                ThongTinDangNhap thongTinDangNhap = new ThongTinDangNhap();
+                                thongTinDangNhap.setHinh6("" + uri + "");
+
+                                node.child(id).updateChildren(thongTinDangNhap.toMapAnh6(), new DatabaseReference.CompletionListener() {
+                                    @Override
+                                    public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
+                                        if (error == null) {
+                                        }
+                                    }
+                                });
+
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                            }
+                        });
+                    }
+                });
+
+                Calendar calendar7 = Calendar.getInstance();
+                StorageReference mountainsRef7 = storageRef.child("image" + calendar7.getTimeInMillis() + ".png");
+                case7.setDrawingCacheEnabled(true);
+                case7.buildDrawingCache();
+                Bitmap bitmap7 = ((BitmapDrawable) case7.getDrawable()).getBitmap();
+                ByteArrayOutputStream baos7 = new ByteArrayOutputStream();
+                bitmap7.compress(Bitmap.CompressFormat.PNG, 100, baos7);
+                byte[] data7 = baos7.toByteArray();
+                UploadTask uploadTask7 = mountainsRef7.putBytes(data7);
+                uploadTask7.addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception exception) {
+                        Toast.makeText(thongtin_addArt.this, "Loi up hinh", Toast.LENGTH_SHORT).show();
+                    }
+                }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        Task<Uri> downloadUri = taskSnapshot.getStorage().getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            @Override
+                            public void onSuccess(Uri uri) {
+                                String id = firebaseAuth.getUid();
+                                ThongTinDangNhap thongTinDangNhap = new ThongTinDangNhap();
+                                thongTinDangNhap.setHinh7("" + uri + "");
+
+                                node.child(id).updateChildren(thongTinDangNhap.toMapAnh7(), new DatabaseReference.CompletionListener() {
+                                    @Override
+                                    public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
+                                        if (error == null) {
+                                        }
+                                    }
+                                });
+
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                            }
+                        });
+                    }
+                });
+
+
+
+
+                Calendar calendar8 = Calendar.getInstance();
+                StorageReference mountainsRef8 = storageRef.child("image" + calendar8.getTimeInMillis() + ".png");
+                case8.setDrawingCacheEnabled(true);
+                case8.buildDrawingCache();
+                Bitmap bitmap8 = ((BitmapDrawable) case8.getDrawable()).getBitmap();
+                ByteArrayOutputStream baos8 = new ByteArrayOutputStream();
+                bitmap8.compress(Bitmap.CompressFormat.PNG, 100, baos8);
+                byte[] data8 = baos8.toByteArray();
+                UploadTask uploadTask8 = mountainsRef8.putBytes(data8);
+                uploadTask8.addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception exception) {
+                        Toast.makeText(thongtin_addArt.this, "Loi up hinh", Toast.LENGTH_SHORT).show();
+                    }
+                }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        Task<Uri> downloadUri = taskSnapshot.getStorage().getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            @Override
+                            public void onSuccess(Uri uri) {
+                                String id = firebaseAuth.getUid();
+                                ThongTinDangNhap thongTinDangNhap = new ThongTinDangNhap();
+                                thongTinDangNhap.setHinh8("" + uri + "");
+
+                                node.child(id).updateChildren(thongTinDangNhap.toMapAnh8(), new DatabaseReference.CompletionListener() {
+                                    @Override
+                                    public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
+                                        if (error == null) {
+                                        }
+                                    }
+                                });
+
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                            }
+                        });
+                    }
+                });
+
+
+
+
+
+
+                Calendar calendar9 = Calendar.getInstance();
+                StorageReference mountainsRef9 = storageRef.child("image" + calendar9.getTimeInMillis() + ".png");
+                case9.setDrawingCacheEnabled(true);
+                case9.buildDrawingCache();
+                Bitmap bitmap9 = ((BitmapDrawable) case9.getDrawable()).getBitmap();
+                ByteArrayOutputStream baos9 = new ByteArrayOutputStream();
+                bitmap9.compress(Bitmap.CompressFormat.PNG, 100, baos9);
+                byte[] data9 = baos9.toByteArray();
+                UploadTask uploadTask9 = mountainsRef9.putBytes(data9);
+                uploadTask9.addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception exception) {
+                        Toast.makeText(thongtin_addArt.this, "Loi up hinh", Toast.LENGTH_SHORT).show();
+                    }
+                }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        Task<Uri> downloadUri = taskSnapshot.getStorage().getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            @Override
+                            public void onSuccess(Uri uri) {
+                                String id = firebaseAuth.getUid();
+                                ThongTinDangNhap thongTinDangNhap = new ThongTinDangNhap();
+                                thongTinDangNhap.setHinh9("" + uri + "");
+
+                                node.child(id).updateChildren(thongTinDangNhap.toMapAnh9(), new DatabaseReference.CompletionListener() {
+                                    @Override
+                                    public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
+                                        if (error == null) {
+                                        }
+                                    }
+                                });
+
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                            }
+                        });
+                    }
+                });
+
+
+
+
+
+
+
+
+
+
+
+            }
+        });
+
+
+
+
+
+
+
 
         super.onActivityResult(requestCode, resultCode, data);
     }
+
+
 
 }
