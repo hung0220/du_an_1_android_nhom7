@@ -14,6 +14,10 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class thongtin_sothich extends AppCompatActivity {
     Button tieptuc_sothich;
     Button btnTheThao,btnVeDem,btnAmNhac,btnDulich,btnCafe,btnDocsach,btnCauca,btnDientu,btnAmThuc,btnNauan,btnXemay;
@@ -22,11 +26,16 @@ public class thongtin_sothich extends AppCompatActivity {
     String sothich1,sothich2,sothich3,sothich4,sothich5,sothich6,sothich7,sothich8,sothich9,sothich10,sothich11;
     TextView txtErroSoThich;
     int dem = 0;
+    String soThichChon1 = null,soThichChon2= null,soThichChon3= null;
+    FirebaseDatabase db = FirebaseDatabase.getInstance("https://du-an-1-android-75d60-default-rtdb.firebaseio.com/");
+    DatabaseReference node = db.getReference("TaiKhoan");
+    FirebaseAuth firebaseAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_thongtin_sothich);
+        firebaseAuth=FirebaseAuth.getInstance();
         Anhxa();
         //                 tiếp tục
 
@@ -50,6 +59,18 @@ public class thongtin_sothich extends AppCompatActivity {
                 btnTheThao2.setVisibility(View.VISIBLE);
                 dem++;
                 tieptuc_sothich.setText("Tiếp tục "+dem+"/3");
+
+                if(soThichChon1 == null){
+                    soThichChon1 ="Thể thao";
+                } else if(soThichChon2 == null ){
+                    soThichChon2 ="Thể thao";
+                } else if(soThichChon3 == null){
+                    soThichChon3 ="Thể thao";
+                }
+
+
+
+
             }
         });
         btnTheThao2.setOnClickListener(new View.OnClickListener() {
@@ -60,6 +81,15 @@ public class thongtin_sothich extends AppCompatActivity {
                 btnTheThao.setVisibility(View.VISIBLE);
                 dem--;
                 tieptuc_sothich.setText("Tiếp tục "+dem+"/3");
+
+                if( soThichChon1 == "Thể thao"){
+                    soThichChon1 =null;
+                } else if(soThichChon2 == "Thể thao" ){
+                    soThichChon2 =null;
+                } else if(soThichChon3 == "Thể thao"){
+                    soThichChon3 =null;
+                }
+
             }
         });
         btnVeDem.setOnClickListener(new View.OnClickListener() {
@@ -70,6 +100,13 @@ public class thongtin_sothich extends AppCompatActivity {
                 btnVeDem2.setVisibility(View.VISIBLE);
                 dem++;
                 tieptuc_sothich.setText("Tiếp tục "+dem+"/3");
+                if(soThichChon1 == null){
+                    soThichChon1 =sothich2;
+                } else if( soThichChon2 == null  ){
+                    soThichChon2 =sothich2;
+                } else if(soThichChon3 == null){
+                    soThichChon3 =sothich2;
+                }
             }
         });
         btnVeDem2.setOnClickListener(new View.OnClickListener() {
@@ -80,6 +117,14 @@ public class thongtin_sothich extends AppCompatActivity {
                 btnVeDem.setVisibility(View.VISIBLE);
                 dem--;
                 tieptuc_sothich.setText("Tiếp tục "+dem+"/3");
+
+                if( soThichChon1 == "Sống về đêm"){
+                    soThichChon1 =null;
+                } else if(soThichChon2 == "Sống về đêm" ){
+                    soThichChon2 =null;
+                } else if(soThichChon3 == "Sống về đêm"){
+                    soThichChon3 =null;
+                }
             }
         });
         btnAmNhac.setOnClickListener(new View.OnClickListener() {
@@ -90,16 +135,31 @@ public class thongtin_sothich extends AppCompatActivity {
                 btnAmNhac2.setVisibility(View.VISIBLE);
                 dem++;
                 tieptuc_sothich.setText("Tiếp tục "+dem+"/3");
+                if(soThichChon1 == null){
+                    soThichChon1 =sothich3;
+                } else if( soThichChon2 == null   ){
+                    soThichChon2 =sothich3;
+                } else if(soThichChon3 == null){
+                    soThichChon3 =sothich3;
+                }
             }
         });
         btnAmNhac2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 sothich3 = "";
+                 String sothich31 = "Âm nhạc";
                 btnAmNhac2.setVisibility(View.INVISIBLE);
                 btnAmNhac.setVisibility(View.VISIBLE);
                 dem--;
                 tieptuc_sothich.setText("Tiếp tục "+dem+"/3");
+                if( soThichChon1 == sothich31){
+                    soThichChon1 =null;
+                } else if(soThichChon2 == sothich31){
+                    soThichChon2 =null;
+                } else if(soThichChon3 == sothich31){
+                    soThichChon3 =null;
+                }
             }
         });
         btnDulich.setOnClickListener(new View.OnClickListener() {
@@ -110,16 +170,32 @@ public class thongtin_sothich extends AppCompatActivity {
                 btnDulich2.setVisibility(View.VISIBLE);
                 dem++;
                 tieptuc_sothich.setText("Tiếp tục "+dem+"/3");
+                if(soThichChon1 == null){
+                    soThichChon1 =sothich4;
+                } else if( soThichChon2 == null ){
+                    soThichChon2 =sothich4;
+                } else if(soThichChon3 == null){
+                    soThichChon3 =sothich4;
+                }
             }
         });
         btnDulich2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 sothich4 = "";
+
                 btnDulich2.setVisibility(View.INVISIBLE);
                 btnDulich.setVisibility(View.VISIBLE);
                 dem--;
                 tieptuc_sothich.setText("Tiếp tục "+dem+"/3");
+                String sothich31 = "Du lịch";
+                if( soThichChon1 == sothich31){
+                    soThichChon1 =null;
+                } else if(soThichChon2 == sothich31){
+                    soThichChon2 =null;
+                } else if(soThichChon3 == sothich31){
+                    soThichChon3 =null;
+                }
             }
         });
         btnCafe.setOnClickListener(new View.OnClickListener() {
@@ -130,6 +206,13 @@ public class thongtin_sothich extends AppCompatActivity {
                 btnCafe2.setVisibility(View.VISIBLE);
                 dem++;
                 tieptuc_sothich.setText("Tiếp tục "+dem+"/3");
+                if(soThichChon1 == null){
+                    soThichChon1 =sothich5;
+                } else if( soThichChon2 == null   ){
+                    soThichChon2 =sothich5;
+                } else if(soThichChon3 == null){
+                    soThichChon3 =sothich5;
+                }
             }
         });
         btnCafe2.setOnClickListener(new View.OnClickListener() {
@@ -140,6 +223,14 @@ public class thongtin_sothich extends AppCompatActivity {
                 btnCafe.setVisibility(View.VISIBLE);
                 dem--;
                 tieptuc_sothich.setText("Tiếp tục "+dem+"/3");
+                String sothich31 = "Cafe";
+                if( soThichChon1 == sothich31){
+                    soThichChon1 =null;
+                } else if(soThichChon2 == sothich31){
+                    soThichChon2 =null;
+                } else if(soThichChon3 == sothich31){
+                    soThichChon3 =null;
+                }
             }
         });
         btnDocsach.setOnClickListener(new View.OnClickListener() {
@@ -150,6 +241,13 @@ public class thongtin_sothich extends AppCompatActivity {
                 btnDocsach2.setVisibility(View.VISIBLE);
                 dem++;
                 tieptuc_sothich.setText("Tiếp tục "+dem+"/3");
+                if(soThichChon1 == null){
+                    soThichChon1 =sothich6;
+                } else if( soThichChon2 == null   ){
+                    soThichChon2 =sothich6;
+                } else if(soThichChon3 == null){
+                    soThichChon3 =sothich6;
+                }
             }
         });
         btnDocsach2.setOnClickListener(new View.OnClickListener() {
@@ -160,6 +258,14 @@ public class thongtin_sothich extends AppCompatActivity {
                 btnDocsach.setVisibility(View.VISIBLE);
                 dem--;
                 tieptuc_sothich.setText("Tiếp tục "+dem+"/3");
+                String sothich31 = "Đọc sách";
+                if( soThichChon1 == sothich31){
+                    soThichChon1 =null;
+                } else if(soThichChon2 == sothich31){
+                    soThichChon2 =null;
+                } else if(soThichChon3 == sothich31){
+                    soThichChon3 =null;
+                }
             }
         });
         btnCauca.setOnClickListener(new View.OnClickListener() {
@@ -170,6 +276,13 @@ public class thongtin_sothich extends AppCompatActivity {
                 btnCauca2.setVisibility(View.VISIBLE);
                 dem++;
                 tieptuc_sothich.setText("Tiếp tục "+dem+"/3");
+                if(soThichChon1 == null){
+                    soThichChon1 =sothich7;
+                } else if( soThichChon2 == null   ){
+                    soThichChon2 =sothich7;
+                } else if(soThichChon3 == null){
+                    soThichChon3 =sothich7;
+                }
             }
         });
         btnCauca2.setOnClickListener(new View.OnClickListener() {
@@ -180,6 +293,14 @@ public class thongtin_sothich extends AppCompatActivity {
                 btnCauca.setVisibility(View.VISIBLE);
                 dem--;
                 tieptuc_sothich.setText("Tiếp tục "+dem+"/3");
+                String sothich31 = "Câu cá";
+                if( soThichChon1 == sothich31){
+                    soThichChon1 =null;
+                } else if(soThichChon2 == sothich31){
+                    soThichChon2 =null;
+                } else if(soThichChon3 == sothich31){
+                    soThichChon3 =null;
+                }
             }
         });
         btnDientu.setOnClickListener(new View.OnClickListener() {
@@ -190,6 +311,13 @@ public class thongtin_sothich extends AppCompatActivity {
                 btnDientu2.setVisibility(View.VISIBLE);
                 dem++;
                 tieptuc_sothich.setText("Tiếp tục "+dem+"/3");
+                if(soThichChon1 == null){
+                    soThichChon1 =sothich8;
+                } else if( soThichChon2 == null   ){
+                    soThichChon2 =sothich8;
+                } else if(soThichChon3 == null){
+                    soThichChon3 =sothich8;
+                }
             }
         });
         btnDientu2.setOnClickListener(new View.OnClickListener() {
@@ -200,6 +328,14 @@ public class thongtin_sothich extends AppCompatActivity {
                 btnDientu.setVisibility(View.VISIBLE);
                 dem--;
                 tieptuc_sothich.setText("Tiếp tục "+dem+"/3");
+                String sothich31 = "Thể thao điện tử";
+                if( soThichChon1 == sothich31){
+                    soThichChon1 =null;
+                } else if(soThichChon2 == sothich31){
+                    soThichChon2 =null;
+                } else if(soThichChon3 == sothich31){
+                    soThichChon3 =null;
+                }
             }
         });
         btnAmThuc.setOnClickListener(new View.OnClickListener() {
@@ -210,6 +346,13 @@ public class thongtin_sothich extends AppCompatActivity {
                 btnAmThuc2.setVisibility(View.VISIBLE);
                 dem++;
                 tieptuc_sothich.setText("Tiếp tục "+dem+"/3");
+                if(soThichChon1 == null){
+                    soThichChon1 =sothich9;
+                } else if( soThichChon2 == null   ){
+                    soThichChon2 =sothich9;
+                } else if(soThichChon3 == null){
+                    soThichChon3 =sothich9;
+                }
             }
         });
         btnAmThuc2.setOnClickListener(new View.OnClickListener() {
@@ -220,6 +363,14 @@ public class thongtin_sothich extends AppCompatActivity {
                 btnAmThuc.setVisibility(View.VISIBLE);
                 dem--;
                 tieptuc_sothich.setText("Tiếp tục "+dem+"/3");
+                String sothich31 = "Ẩm thực";
+                if( soThichChon1 == sothich31){
+                    soThichChon1 =null;
+                } else if(soThichChon2 == sothich31){
+                    soThichChon2 =null;
+                } else if(soThichChon3 == sothich31){
+                    soThichChon3 =null;
+                }
             }
         });
         btnNauan.setOnClickListener(new View.OnClickListener() {
@@ -230,6 +381,14 @@ public class thongtin_sothich extends AppCompatActivity {
                 btnNauan2.setVisibility(View.VISIBLE);
                 dem++;
                 tieptuc_sothich.setText("Tiếp tục "+dem+"/3");
+
+                if(soThichChon1 == null){
+                    soThichChon1 =sothich10;
+                } else if( soThichChon2 == null   ){
+                    soThichChon2 =sothich10;
+                } else if(soThichChon3 == null){
+                    soThichChon3 =sothich10;
+                }
             }
         });
         btnNauan2.setOnClickListener(new View.OnClickListener() {
@@ -240,6 +399,14 @@ public class thongtin_sothich extends AppCompatActivity {
                 btnNauan.setVisibility(View.VISIBLE);
                 dem--;
                 tieptuc_sothich.setText("Tiếp tục "+dem+"/3");
+                String sothich31 = "Nấu ăn";
+                if( soThichChon1 == sothich31){
+                    soThichChon1 =null;
+                } else if(soThichChon2 == sothich31){
+                    soThichChon2 =null;
+                } else if(soThichChon3 == sothich31){
+                    soThichChon3 =null;
+                }
             }
         });
         btnXemay.setOnClickListener(new View.OnClickListener() {
@@ -250,6 +417,13 @@ public class thongtin_sothich extends AppCompatActivity {
                 btnXemay2.setVisibility(View.VISIBLE);
                 dem++;
                 tieptuc_sothich.setText("Tiếp tục "+dem+"/3");
+                if(soThichChon1 == null){
+                    soThichChon1 =sothich11;
+                } else if( soThichChon2 == null   ){
+                    soThichChon2 =sothich11;
+                } else if(soThichChon3 == null){
+                    soThichChon3 =sothich11;
+                }
             }
         });
         btnXemay2.setOnClickListener(new View.OnClickListener() {
@@ -260,6 +434,14 @@ public class thongtin_sothich extends AppCompatActivity {
                 btnXemay.setVisibility(View.VISIBLE);
                 dem--;
                 tieptuc_sothich.setText("Tiếp tục "+dem+"/3");
+                String sothich31 = "Xe máy";
+                if( soThichChon1 == sothich31){
+                    soThichChon1 =null;
+                } else if(soThichChon2 == sothich31){
+                    soThichChon2 =null;
+                } else if(soThichChon3 == sothich31){
+                    soThichChon3 =null;
+                }
             }
         });
 
@@ -275,10 +457,21 @@ public class thongtin_sothich extends AppCompatActivity {
                     Intent intent = new Intent(thongtin_sothich.this, com.example.du_an_1_android.thongtin_mota.class);
                     startActivity(intent);
                     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-//                    Toast.makeText(thongtin_sothich.this, ""+sothich3, Toast.LENGTH_SHORT).show();
-//                    Toast.makeText(thongtin_sothich.this, ""+sothich5, Toast.LENGTH_SHORT).show();
-//                    Toast.makeText(thongtin_sothich.this, ""+sothich7, Toast.LENGTH_SHORT).show();
-//                    Toast.makeText(thongtin_sothich.this, ""+sothich1, Toast.LENGTH_SHORT).show();
+
+                    String id = firebaseAuth.getUid();
+                    ThongTinDangNhap thongTinDangNhap = new ThongTinDangNhap();
+                    thongTinDangNhap.setSoThich1(soThichChon1);
+                    node.child(id).updateChildren(thongTinDangNhap.toMapSoThich1());
+
+
+                    ThongTinDangNhap thongTinDangNhap2 = new ThongTinDangNhap();
+                    thongTinDangNhap2.setSoThich2(soThichChon2);
+                    node.child(id).updateChildren(thongTinDangNhap2.toMapSoThich2());
+
+
+                    ThongTinDangNhap thongTinDangNhap3 = new ThongTinDangNhap();
+                    thongTinDangNhap3.setSoThich3(soThichChon3);
+                    node.child(id).updateChildren(thongTinDangNhap3.toMapSoThich3());
                 }
 
             }
