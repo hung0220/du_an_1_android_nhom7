@@ -273,4 +273,44 @@ public class ThongTinDangNhap {
         resuft.put("hinh1", Hinh1);
         return resuft;
     }
+    public Map<String, Object> toMapAnh2() {
+        HashMap<String, Object> resuft = new HashMap<>();
+        resuft.put("hinh2", Hinh2);
+        return resuft;
+    }
+    public Map<String, Object> toMapAnh3() {
+        HashMap<String, Object> resuft = new HashMap<>();
+        resuft.put("hinh3", Hinh3);
+        return resuft;
+    }
+    public Map<String, Object> toMapAnh4() {
+        HashMap<String, Object> resuft = new HashMap<>();
+        resuft.put("hinh4", Hinh4);
+        return resuft;
+    }
+    public Map<String, Object> toMapAnh5() {
+        HashMap<String, Object> resuft = new HashMap<>();
+        resuft.put("hinh5", Hinh5);
+        return resuft;
+    }
+    public Map<String, Object> toMapAnh6() {
+        HashMap<String, Object> resuft = new HashMap<>();
+        resuft.put("hinh6", Hinh6);
+        return resuft;
+    }
+    public Map<String, Object> toMapAnh7() {
+        HashMap<String, Object> resuft = new HashMap<>();
+        resuft.put("hinh7", Hinh7);
+        return resuft;
+    }
+    public Map<String, Object> toMapAnh8() {
+        HashMap<String, Object> resuft = new HashMap<>();
+        resuft.put("hinh8", Hinh8);
+        return resuft;
+    }
+    public Map<String, Object> toMapAnh9() {
+        HashMap<String, Object> resuft = new HashMap<>();
+        resuft.put("hinh9", Hinh9);
+        return resuft;
+    }
 }
