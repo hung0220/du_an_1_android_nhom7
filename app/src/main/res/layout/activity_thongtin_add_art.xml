@@ -58,12 +58,12 @@
         app:layout_constraintVertical_bias=".05"
         app:layout_constraintWidth_percent=".25"
         >
-    <ImageView
-        android:id="@+id/case1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/boder_img"
-        />
+        <ImageView
+            android:id="@+id/case1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/boder_img"
+            />
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
