@@ -12,7 +12,9 @@ public class ThongTinDangNhap {
     private String TenCuaBan;
     private String NgaySinh;
     private String GioiTinh;
-    private String SoThich;
+    private String SoThich1;
+    private String SoThich2;
+    private String SoThich3;
     private String MoTa;
     private String Hinh1;
     private String Hinh2;
@@ -27,7 +29,7 @@ public class ThongTinDangNhap {
     public ThongTinDangNhap() {
     }
 
-    public ThongTinDangNhap(String id, String tenDangNhap, String matKhau, String gmail, String SDT, String tenCuaBan, String ngaySinh, String gioiTinh, String soThich, String moTa, String hinh1, String hinh2, String hinh3, String hinh4, String hinh5, String hinh6, String hinh7, String hinh8, String hinh9) {
+    public ThongTinDangNhap(String id, String tenDangNhap, String matKhau, String gmail, String SDT, String tenCuaBan, String ngaySinh, String gioiTinh, String soThich1, String soThich2, String soThich3, String moTa, String hinh1, String hinh2, String hinh3, String hinh4, String hinh5, String hinh6, String hinh7, String hinh8, String hinh9) {
         this.id = id;
         TenDangNhap = tenDangNhap;
         MatKhau = matKhau;
@@ -36,7 +38,9 @@ public class ThongTinDangNhap {
         TenCuaBan = tenCuaBan;
         NgaySinh = ngaySinh;
         GioiTinh = gioiTinh;
-        SoThich = soThich;
+        SoThich1 = soThich1;
+        SoThich2 = soThich2;
+        SoThich3 = soThich3;
         MoTa = moTa;
         Hinh1 = hinh1;
         Hinh2 = hinh2;
@@ -113,12 +117,28 @@ public class ThongTinDangNhap {
         GioiTinh = gioiTinh;
     }
 
-    public String getSoThich() {
-        return SoThich;
+    public String getSoThich1() {
+        return SoThich1;
     }
 
-    public void setSoThich(String soThich) {
-        SoThich = soThich;
+    public void setSoThich1(String soThich1) {
+        SoThich1 = soThich1;
+    }
+
+    public String getSoThich2() {
+        return SoThich2;
+    }
+
+    public void setSoThich2(String soThich2) {
+        SoThich2 = soThich2;
+    }
+
+    public String getSoThich3() {
+        return SoThich3;
+    }
+
+    public void setSoThich3(String soThich3) {
+        SoThich3 = soThich3;
     }
 
     public String getMoTa() {
@@ -201,7 +221,7 @@ public class ThongTinDangNhap {
         Hinh9 = hinh9;
     }
 
-    public Map<String, Object> toMap() {
+    public Map<String, Object> toMapGmail() {
         HashMap<String, Object> resuft = new HashMap<>();
         resuft.put("gmail", Gmail);
         return resuft;
@@ -226,22 +246,31 @@ public class ThongTinDangNhap {
         resuft.put("gioiTinh", GioiTinh);
         return resuft;
     }
-    public Map<String, Object> toMapSoThich() {
+    public Map<String, Object> toMapSoThich1() {
         HashMap<String, Object> resuft = new HashMap<>();
-        resuft.put("soThich", SoThich);
+        resuft.put("soThich1", SoThich1);
         return resuft;
     }
+    public Map<String, Object> toMapSoThich2() {
+        HashMap<String, Object> resuft = new HashMap<>();
+        resuft.put("soThich2", SoThich2);
+        return resuft;
+    }
+    public Map<String, Object> toMapSoThich3() {
+        HashMap<String, Object> resuft = new HashMap<>();
+        resuft.put("soThich3", SoThich3);
+        return resuft;
+    }
+
     public Map<String, Object> toMapMoTa() {
         HashMap<String, Object> resuft = new HashMap<>();
         resuft.put("moTa", MoTa);
         return resuft;
     }
+
     public Map<String, Object> toMapAnh1() {
         HashMap<String, Object> resuft = new HashMap<>();
         resuft.put("hinh1", Hinh1);
         return resuft;
     }
-
-
-
 }

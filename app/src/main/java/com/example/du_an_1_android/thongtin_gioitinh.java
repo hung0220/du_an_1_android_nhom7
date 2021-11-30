@@ -6,19 +6,28 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class thongtin_gioitinh extends AppCompatActivity {
     Button tieptuc_gioitinh;
     ImageView trove_gioitinh;
-    String gioiTinh;
+    String gioiTinh = null;
     Button btnNamWhite,btnNuWhite,btnKhacWhite,btnNamPink,btnNuPink,btnKhacPink;
+    FirebaseDatabase db = FirebaseDatabase.getInstance("https://du-an-1-android-75d60-default-rtdb.firebaseio.com/");
+    DatabaseReference node = db.getReference("TaiKhoan");
+    FirebaseAuth firebaseAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_thongtin_gioitinh);
+        firebaseAuth=FirebaseAuth.getInstance();
 //        ánh xạ
         btnNamWhite = findViewById(R.id.btnNamWhite);
         btnNuWhite = findViewById(R.id.btnNuWhite);
@@ -26,16 +35,6 @@ public class thongtin_gioitinh extends AppCompatActivity {
         btnNamPink = findViewById(R.id.btnNamPink);
         btnNuPink = findViewById(R.id.btnNuPink);
         btnKhacPink = findViewById(R.id.btnKhacPink);
-//                 tiếp tục
-        tieptuc_gioitinh = findViewById(R.id.btnTT_gioitinh);
-        tieptuc_gioitinh.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(thongtin_gioitinh.this, thongtin_sothich.class);
-                startActivity(intent);
-                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-            }
-        });
 
 //        Trờ về
         trove_gioitinh = findViewById(R.id.back_gioitinh);
@@ -102,6 +101,27 @@ public class thongtin_gioitinh extends AppCompatActivity {
                 btnKhacPink.setVisibility(View.VISIBLE);
             }
         });
+
+
+
+        //                 tiếp tục
+        tieptuc_gioitinh = findViewById(R.id.btnTT_gioitinh);
+        tieptuc_gioitinh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                String id = firebaseAuth.getUid();
+                ThongTinDangNhap thongTinDangNhap = new ThongTinDangNhap();
+                thongTinDangNhap.setGioiTinh(gioiTinh);
+
+                node.child(id).updateChildren(thongTinDangNhap.toMapGioiTinh());
+                Intent intent = new Intent(thongtin_gioitinh.this, thongtin_sothich.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            }
+        });
+
 
     }
 }

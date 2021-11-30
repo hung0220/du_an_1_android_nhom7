@@ -39,8 +39,8 @@ public class thongtin_email extends AppCompatActivity {
         Intent intent = getIntent();
         //
         GoogleSignInAccount account= GoogleSignIn.getLastSignedInAccount(thongtin_email.this);
-        String tentk = account.getEmail();
-        edtGmail.setText(tentk);
+//        String tentk = account.getEmail();
+//        edtGmail.setText(tentk);
 //        Tiếp tục
         tieptuc_email = findViewById(R.id.btnTT_email);
         tieptuc_email.setOnClickListener(new View.OnClickListener() {
@@ -51,7 +51,7 @@ public class thongtin_email extends AppCompatActivity {
                 ThongTinDangNhap thongTinDangNhap = new ThongTinDangNhap();
                 thongTinDangNhap.setGmail(gmail);
 
-                node.child(id).updateChildren(thongTinDangNhap.toMap());
+                node.child(id).updateChildren(thongTinDangNhap.toMapGmail());
 
                 Intent intent = new Intent(thongtin_email.this, thongtin_sdt.class);
                 Toast.makeText(thongtin_email.this, "chuyển thành công", Toast.LENGTH_SHORT).show();
